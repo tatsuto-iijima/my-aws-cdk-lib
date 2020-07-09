@@ -1,0 +1,8 @@
+*.ts
+!*.d.ts
+!lambda/test/index.ts
+!lib/index.Function.ts
+
+# CDK asset staging directory
+.cdk.staging
+cdk.out
