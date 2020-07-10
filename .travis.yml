@@ -1,0 +1,18 @@
+language: node_js
+
+node_js:
+  - lts/*
+
+branches:
+  only:
+  - master
+  - /^release\/.*/
+
+install:
+  - npm install -g typescript
+  - npm install -g aws-cdk
+  - cd ./packages/lambda-nodejs
+  - npm install
+
+script:
+  - npm test
