@@ -2,6 +2,7 @@
 !*.d.ts
 !lambda/test/index.ts
 !lib/index.Function.ts
+package-lock.json
 
 # CDK asset staging directory
 .cdk.staging
