@@ -7,7 +7,7 @@ branches:
   only:
   - master
   - develop
-  - /^release\/.*/
+  - "/^release\\/.*/"
 
 install:
   - npm install -g typescript
@@ -18,7 +18,17 @@ install:
 script:
   - npm test
 
+deploy:
+  provider: npm
+  skip_cleanup: true
+  email: tatsuto.iijima@gmail.com
+  api_key:
+    secure: f0O2zF4vGk9xuRV914nqMo/UmiN6rk9ca5btN3jwtxh8xmctLeiZKEk2tosCgDqgB3Z9Rj4zNIjg94GIhZTydcpADmMfbz9febXY2QsTiW7C8WptCGenfsKHp1sjDdnxbO3CQuGVF3vvRacb0PuZHROz5Ggxx+wXl2sWU6A8V+PIwsdDcXFsoBYSYu1wTUvUNAozD1o/IOkdbOpUZJJ5xxqGMSCGH0DRYw5uS5PU6IcV7HpB2WmAqnH/qvG8V0tlBP1cowZzZXDKS8zdG+0WIm1J9G5ED/tXLIrLcyCnFajZyCzQxC8d0FNnFoo3ByEaCQDIdQ2mCtvAwjyr7nwqCqXqI9g3KcK6UPjSKfr4FDy3tTvtRVChp8qIV/GJXEy+FyhAy3y13Dfa9if9gZT4UGb5J9Q6WQmPG+c5fl61AL1KsDc7Sj0HQEqDA1F6RdkZWIV0meHcIdqYXJ44r+1WOhqijMp+tEsXKWHn8El298icNZNYDtNsBCkzXD2oxOMWc8pzgOKJ2nDb95UwRqorzR4saVSAun+Mg61cSf1FC/UeTnf0SYmQ2BNVfY9EYRv9nBcPb1C5xt58c6E5+3Ib9Gc7fNMRAT/Akh69gx3Yiva8yZRR9R8J4IjWRISXDiPoZHnosGqIILoJkqm5jYMnFpKtxIuZ79fjsRfkGu9aw3U=
+  on:
+    tags: true
+    branch: master
+
 notifications:
   email: false
   slack:
-    secure: "FEvpao20s4FVqL0mq7B0SC4Sa/J9KAnMpYHiPKshAn2R/PCwvq7PObGFTSQEqMRc0olTOtucJImQV7NPM2gtG7nTAE/2LVhIvfE7hxpuaKjCub2g/dnm/0ePXNI0qDwJZ0t4fqzQTP8cNT0c+icwhRrK5AQAxm4PQEW+M9Irf1IHRHHRU/Zz2ArXrDhG9nydM7/ji+DPNEA8H6HluszaQl9CBbnIye9qhS8p5blJYX1LOOKK/WAJ+A/2N2Qb6p3yEAM9cAytH2tK/sSczJVTY1ri9hs7ei4aFIOTUBQ444ugH0DIKlQLzCfz0fsepvUW8dEgS1F0bZvnfCg4/wWLmcjfDArJ62qUyDS9+gp05IrCS+GH3+RXgDQB9Z1td1AQ+0ewJZznCHvyK4Gsq/nvUlP9Ap5CifA3CC9/vFCn1uM31bGTFtkefLVu5h6GSxLSHjYgNtMfkaFJTOFBIdH2zsI0+v8uuVwNMwSLkH/Q4c0V4C2tCmECMjPMiZfKWpTQfZ8p3eL82GNmuYyEMi7okayluc68WoV48B+9ltj4Y6lLpnATw1ZR1nLbnxVIEhEDTqDsdjW7uyB1aXNjeZLpjEu8TwQYJMVjAl5Vc+9c/w/9RwmfH/MwQ8ndPNhVWrJ3jq1+YcbnxWvbif8bpLGypxunv2uiSjuGnjc9Q28GDC0="
+    secure: FEvpao20s4FVqL0mq7B0SC4Sa/J9KAnMpYHiPKshAn2R/PCwvq7PObGFTSQEqMRc0olTOtucJImQV7NPM2gtG7nTAE/2LVhIvfE7hxpuaKjCub2g/dnm/0ePXNI0qDwJZ0t4fqzQTP8cNT0c+icwhRrK5AQAxm4PQEW+M9Irf1IHRHHRU/Zz2ArXrDhG9nydM7/ji+DPNEA8H6HluszaQl9CBbnIye9qhS8p5blJYX1LOOKK/WAJ+A/2N2Qb6p3yEAM9cAytH2tK/sSczJVTY1ri9hs7ei4aFIOTUBQ444ugH0DIKlQLzCfz0fsepvUW8dEgS1F0bZvnfCg4/wWLmcjfDArJ62qUyDS9+gp05IrCS+GH3+RXgDQB9Z1td1AQ+0ewJZznCHvyK4Gsq/nvUlP9Ap5CifA3CC9/vFCn1uM31bGTFtkefLVu5h6GSxLSHjYgNtMfkaFJTOFBIdH2zsI0+v8uuVwNMwSLkH/Q4c0V4C2tCmECMjPMiZfKWpTQfZ8p3eL82GNmuYyEMi7okayluc68WoV48B+9ltj4Y6lLpnATw1ZR1nLbnxVIEhEDTqDsdjW7uyB1aXNjeZLpjEu8TwQYJMVjAl5Vc+9c/w/9RwmfH/MwQ8ndPNhVWrJ3jq1+YcbnxWvbif8bpLGypxunv2uiSjuGnjc9Q28GDC0=
