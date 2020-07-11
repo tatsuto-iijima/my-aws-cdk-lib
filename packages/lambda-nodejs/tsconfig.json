@@ -19,6 +19,11 @@
     "strictPropertyInitialization":false,
     "typeRoots": ["./node_modules/@types"]
   },
-  "exclude": ["cdk.out", "lambda/test", "lib/index.Function.ts"]
+  "exclude": [
+    "cdk.out"
+    , "bin"
+    , "lambda/test"
+    , "lib/index.Function.ts"
+  ],
 }
 
