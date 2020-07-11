@@ -2,8 +2,15 @@
 !*.d.ts
 !lambda/test/index.ts
 !lib/index.Function.ts
+node_modules
+cdk.json
+jest.config.js
 package-lock.json
+tsconfig.json
 
 # CDK asset staging directory
 .cdk.staging
 cdk.out
+
+# Parcel default cache directory
+.parcel-cache
