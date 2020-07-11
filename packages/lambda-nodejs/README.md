@@ -54,6 +54,7 @@ new LambdaNodejs(this, "MyFunction", {
 ### Construct IAM Role
 
 IAM Role used in Lambda can be defined together.
+:warning: Cannot specify servicePricipal of assumeBy.
 
 Define a IAM Role:
 ```
