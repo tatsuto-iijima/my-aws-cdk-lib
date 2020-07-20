@@ -1,0 +1,237 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Construct "Lambda" by default Snapshot 1`] = `
+Object {
+  "Parameters": Object {
+    "AssetParameters8c54104f8c241263dca6257bd81975a52f19a118bb01b5596f292e4bd46d843bArtifactHash98CCFFF6": Object {
+      "Description": "Artifact hash for asset \\"8c54104f8c241263dca6257bd81975a52f19a118bb01b5596f292e4bd46d843b\\"",
+      "Type": "String",
+    },
+    "AssetParameters8c54104f8c241263dca6257bd81975a52f19a118bb01b5596f292e4bd46d843bS3Bucket03FE7177": Object {
+      "Description": "S3 bucket for asset \\"8c54104f8c241263dca6257bd81975a52f19a118bb01b5596f292e4bd46d843b\\"",
+      "Type": "String",
+    },
+    "AssetParameters8c54104f8c241263dca6257bd81975a52f19a118bb01b5596f292e4bd46d843bS3VersionKey8E7920FB": Object {
+      "Description": "S3 key for asset version \\"8c54104f8c241263dca6257bd81975a52f19a118bb01b5596f292e4bd46d843b\\"",
+      "Type": "String",
+    },
+  },
+  "Resources": Object {
+    "MyTestConstructFunction4795DE86": Object {
+      "DependsOn": Array [
+        "MyTestConstructFunctionServiceRole786CED66",
+      ],
+      "Properties": Object {
+        "Code": Object {
+          "S3Bucket": Object {
+            "Ref": "AssetParameters8c54104f8c241263dca6257bd81975a52f19a118bb01b5596f292e4bd46d843bS3Bucket03FE7177",
+          },
+          "S3Key": Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                Object {
+                  "Fn::Select": Array [
+                    0,
+                    Object {
+                      "Fn::Split": Array [
+                        "||",
+                        Object {
+                          "Ref": "AssetParameters8c54104f8c241263dca6257bd81975a52f19a118bb01b5596f292e4bd46d843bS3VersionKey8E7920FB",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                Object {
+                  "Fn::Select": Array [
+                    1,
+                    Object {
+                      "Fn::Split": Array [
+                        "||",
+                        Object {
+                          "Ref": "AssetParameters8c54104f8c241263dca6257bd81975a52f19a118bb01b5596f292e4bd46d843bS3VersionKey8E7920FB",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            ],
+          },
+        },
+        "Handler": "index",
+        "Role": Object {
+          "Fn::GetAtt": Array [
+            "MyTestConstructFunctionServiceRole786CED66",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs12.x",
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "MyTestConstructFunctionServiceRole786CED66": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": Array [
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+  },
+}
+`;
+
+exports[`Test Construct "Lambda" by option various Snapshot 1`] = `
+Object {
+  "Parameters": Object {
+    "AssetParameters8c54104f8c241263dca6257bd81975a52f19a118bb01b5596f292e4bd46d843bArtifactHash98CCFFF6": Object {
+      "Description": "Artifact hash for asset \\"8c54104f8c241263dca6257bd81975a52f19a118bb01b5596f292e4bd46d843b\\"",
+      "Type": "String",
+    },
+    "AssetParameters8c54104f8c241263dca6257bd81975a52f19a118bb01b5596f292e4bd46d843bS3Bucket03FE7177": Object {
+      "Description": "S3 bucket for asset \\"8c54104f8c241263dca6257bd81975a52f19a118bb01b5596f292e4bd46d843b\\"",
+      "Type": "String",
+    },
+    "AssetParameters8c54104f8c241263dca6257bd81975a52f19a118bb01b5596f292e4bd46d843bS3VersionKey8E7920FB": Object {
+      "Description": "S3 key for asset version \\"8c54104f8c241263dca6257bd81975a52f19a118bb01b5596f292e4bd46d843b\\"",
+      "Type": "String",
+    },
+  },
+  "Resources": Object {
+    "MyTestConstructFunction4795DE86": Object {
+      "DependsOn": Array [
+        "MyTestConstructRole16E7E65D",
+      ],
+      "Properties": Object {
+        "Code": Object {
+          "S3Bucket": Object {
+            "Ref": "AssetParameters8c54104f8c241263dca6257bd81975a52f19a118bb01b5596f292e4bd46d843bS3Bucket03FE7177",
+          },
+          "S3Key": Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                Object {
+                  "Fn::Select": Array [
+                    0,
+                    Object {
+                      "Fn::Split": Array [
+                        "||",
+                        Object {
+                          "Ref": "AssetParameters8c54104f8c241263dca6257bd81975a52f19a118bb01b5596f292e4bd46d843bS3VersionKey8E7920FB",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                Object {
+                  "Fn::Select": Array [
+                    1,
+                    Object {
+                      "Fn::Split": Array [
+                        "||",
+                        Object {
+                          "Ref": "AssetParameters8c54104f8c241263dca6257bd81975a52f19a118bb01b5596f292e4bd46d843bS3VersionKey8E7920FB",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            ],
+          },
+        },
+        "Handler": "index",
+        "Role": Object {
+          "Fn::GetAtt": Array [
+            "MyTestConstructRole16E7E65D",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs12.x",
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "MyTestConstructRole16E7E65D": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": Array [
+                  "lambda.amazonaws.com",
+                  "edgelambda.amazonaws.com",
+                ],
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "Description": "Test Construct \\"Lambda\\"",
+        "ManagedPolicyArns": Array [
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/AmazonS3ReadOnlyAccess",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "MyTestConstructVersion04a7b4623c7bbdfb27115c29dbd8c6cab43207b1ce6b50e22e03296c0adaa76469BD4225": Object {
+      "Properties": Object {
+        "FunctionName": Object {
+          "Ref": "MyTestConstructFunction4795DE86",
+        },
+      },
+      "Type": "AWS::Lambda::Version",
+    },
+  },
+}
+`;
