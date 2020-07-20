@@ -1,2 +1,3 @@
 # Parcel default cache directory
 .parcel-cache
+.cache
