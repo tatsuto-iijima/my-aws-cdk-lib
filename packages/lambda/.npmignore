@@ -2,10 +2,12 @@
 !*.d.ts
 bin
 node_modules
+scripts
 cdk.json
 jest.config.js
 package-lock.json
 tsconfig.json
+test/sample/index.js
 
 # CDK asset staging directory
 .cdk.staging
