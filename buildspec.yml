@@ -14,5 +14,5 @@ phases:
     commands:
       - npm test
       - ./scripts/system-test.sh ${AWS_ACCESS_KEY_ID} ${AWS_SECRET_ACCESS_KEY} ${AWS_DEFAULT_REGION}
-      - npm build
-      - tar -tf ($npm pack)
+      - npm run build
+      - npm pack --dry-run
