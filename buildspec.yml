@@ -1,0 +1,18 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 12
+      nodejs: 10
+    commands:
+      - npm install -g typescript
+      - npm install -g aws-cdk
+      - cd ${PACKAGE_DIR}
+      - npm install
+  build:
+    commands:
+      - npm test
+      - ./scripts/system-test.sh ${AWS_ACCESS_KEY_ID} ${AWS_SECRET_ACCESS_KEY} ${AWS_DEFAULT_REGION}
+      - npm build
+      - tar -tf ($npm pack)

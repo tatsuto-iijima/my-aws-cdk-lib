@@ -15,26 +15,24 @@ const cloudformation = new AWS.CloudFormation({
   region: process.env.AWS_DEFAULT_REGION,
 });
 
-let stackNum = 0;
-
-describe(stackNames[stackNum] + ' PreTest', () => {
+describe(stackNames[0] + ' PreTest', () => {
   const params: AWS.CloudFormation.ListStackResourcesInput = {
-    StackName: stackNames[stackNum],
+    StackName: stackNames[0],
   };
 
   test('No Stack', async () => {
-    await expect(listStackResourcesAll(cloudformation, params)).rejects.toThrow('Stack with id ' + stackNames[stackNum] + ' does not exist');
+    await expect(listStackResourcesAll(cloudformation, params)).rejects.toThrow('Stack with id ' + stackNames[0] + ' does not exist');
   });
 
 });
 
-describe(stackNames[stackNum] + ' After Deploy', () => {
+describe(stackNames[0] + ' After Deploy', () => {
 
   let stackResourceSummaries: any[];
 
   beforeAll(async () => {
     const params: AWS.CloudFormation.ListStackResourcesInput = {
-      StackName: stackNames[stackNum],
+      StackName: stackNames[0],
     };
     stackResourceSummaries = await listStackResourcesAll(cloudformation, params, ['AWS::Lambda::Function', 'AWS::IAM::Role']);
   });
@@ -118,20 +116,18 @@ describe(stackNames[stackNum] + ' After Deploy', () => {
 
 });
 
-stackNum++;
-
-describe(stackNames[stackNum] + ' PreTest', () => {
+describe(stackNames[1] + ' PreTest', () => {
   const params: AWS.CloudFormation.ListStackResourcesInput = {
-    StackName: stackNames[stackNum],
+    StackName: stackNames[1],
   };
 
   test('No Stack', async () => {
-    await expect(listStackResourcesAll(cloudformation, params)).rejects.toThrow('Stack with id ' + stackNames[stackNum] + ' does not exist');
+    await expect(listStackResourcesAll(cloudformation, params)).rejects.toThrow('Stack with id ' + stackNames[1] + ' does not exist');
   });
 
 });
 
-describe(stackNames[stackNum] + ' After Deploy', () => {
+describe(stackNames[1] + ' After Deploy', () => {
 
   const lambda = new AWS.Lambda({
     apiVersion: '2015-03-31',
@@ -153,7 +149,7 @@ describe(stackNames[stackNum] + ' After Deploy', () => {
 
   beforeAll(async () => {
     const params: AWS.CloudFormation.ListStackResourcesInput = {
-      StackName: stackNames[stackNum],
+      StackName: stackNames[1],
     };
     stackResourceSummaries = await listStackResourcesAll(cloudformation, params, ['AWS::Lambda::Function', 'AWS::Lambda::Version', 'AWS::IAM::Role']);
 
@@ -211,7 +207,6 @@ describe(stackNames[stackNum] + ' After Deploy', () => {
     };
 
     const result = await listVersionsByFunction(lambda, params);
-    console.log(result);
     expect(result.Versions).toEqual(expect.arrayContaining([
       expect.objectContaining({
         Version: '1',
@@ -242,7 +237,7 @@ describe(stackNames[stackNum] + ' After Deploy', () => {
 
 });
 
-describe(stackNames[stackNum] + ' After Update', () => {
+describe(stackNames[1] + ' After Update', () => {
 
   const lambda = new AWS.Lambda({
     apiVersion: '2015-03-31',
@@ -264,7 +259,7 @@ describe(stackNames[stackNum] + ' After Update', () => {
 
   beforeAll(async () => {
     const params: AWS.CloudFormation.ListStackResourcesInput = {
-      StackName: stackNames[stackNum],
+      StackName: stackNames[1],
     };
     stackResourceSummaries = await listStackResourcesAll(cloudformation, params, ['AWS::Lambda::Function', 'AWS::Lambda::Version', 'AWS::IAM::Role']);
 
@@ -322,7 +317,6 @@ describe(stackNames[stackNum] + ' After Update', () => {
     };
 
     const result = await listVersionsByFunction(lambda, params);
-    console.log(result);
     expect(result.Versions).toEqual(expect.arrayContaining([
       expect.objectContaining({
         Version: '2',
